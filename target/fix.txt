@@ -1,0 +1,65 @@
+THINGS TO CHECK
+----------------
+
+typo: errorMessage
+
+invalid commands: should return {response: error, errorMessage: invalid command}
+
+*some extra messages appear after "response: success" (see test results)
+
+
+PUBLISH COMMAND:
+----------------
+publishing a resource with same primary key should overwrite (but it responds with error)
+
+there is 'errorMessage...' after 'response: success'
+
+should not be able to publish a file scheme uri (need to return 'missing resource')
+
+
+REMOVE COMMAND:
+---------------
+able to remove resource from given channel without giving owner (should be wrong primary key)
+
+resource field not correct type should give {response: error, errorMessage: missing resource}
+
+
+SHARE COMMAND:
+--------------
+secret/uri not given should give "errorMessage: missing resource and/or secret" (it gives ERROR: require secret/require uri)
+
+cannot successfully share??
+
+
+incorrect secret should give response "errorMessage: incorrect secret" (it gives ERROR: require secret)
+
+
+QUERY COMMAND:
+--------------
+errorMessage info also returned with resource
+
+cannot do owner search (from assignment sheet: if the template contains owner that is not "", candidate must equal.... -means we should be able to do owner search?)
+
+not all name-search results returned
+
+some non-matching description-search results returned
+
+the command sometimes behaves strangely...
+
+search for two conditions not returning results
+
+
+FETCH COMMAND:
+---------------
+*tested by Alston
+
+should I be able to see physical image?
+
+uri not given - should return "errorMessage: missing resourceTemplate" (it returns ERROR: require uri)
+
+
+EXCHANGE COMMAND:
+-----------------
+server was invalid or missing - how to test this
+
+cannot query other server after server exchange?
